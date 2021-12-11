@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ViraTest</string>
+    <string name="image_games_des">image_games_des</string>
+    <string name="img_movie_des">img_movie_des</string>
+    <string name="payment_receipt">رسید پرداخت</string>
+    <string name="receipt_date">دوشنبه ۱۷ خرداد ۱۴۰۰ ۱۷:۱۷</string>
+    <string name="cash_receipt">موجودی باقیمانده: ۱۰۰۰۰ریال</string>
+    <string name="transaction_receipt">رسید تراکنش</string>
 </resources>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.viratest.api.model.GameBean" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/relativeDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/Flat_WetAsphalt"
+        tools:context=".gameDetails.GamesDetailactivity">
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/games"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="10dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraitLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Flat_WetAsphalt"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintBottom_toTopOf="@id/viewSep"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <ImageView
+                        android:id="@+id/imageGame"
+                        loadImage='@{data.image}'
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/image_games_des"
+                        android:scaleType="fitXY" />
+
+                </androidx.cardview.widget.CardView>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintStart_toEndOf="@id/cardView"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/movieIcon"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@string/img_movie_des"
+                        android:src="@drawable/ic_joystick"
+                        android:tint="@color/paleLavender" />
+
+                    <TextView
+                        android:id="@+id/moviename"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/movieIcon"
+                        android:text="@{data.title}"
+                        android:textColor="@color/md_red_600"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:text="Movie Name" />
+
+                    <ImageView
+                        android:id="@+id/desIcon"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_below="@id/movieIcon"
+                        android:layout_marginTop="5dp"
+                        android:contentDescription="@string/img_movie_des"
+                        android:src="@drawable/ic_document"
+                        android:tint="@color/paleLavender" />
+
+                    <TextView
+                        android:id="@+id/desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/moviename"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@id/desIcon"
+                        android:text="@{data.title}"
+                        android:textColor="@color/paleLavender"
+                        android:textSize="12sp"
+                        tools:text="MovieDescriptionMovieDescriptionMovieDescriptionMovieDescriptionMovieDescription" />
+
+                    <ImageView
+
+                        android:id="@+id/rateIcon"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_below="@id/desIcon"
+                        android:layout_marginTop="12dp"
+                        android:contentDescription="@string/img_movie_des"
+                        android:src="@drawable/ic_podium"
+                        android:tint="@color/paleLavender" />
+
+                    <RatingBar
+                        android:id="@+id/rateText"
+                        style="@style/Base.Widget.AppCompat.RatingBar.Small.MyRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/desc"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_toEndOf="@id/rateIcon"
+                        android:progressBackgroundTint="@color/Gray_8"
+                        android:progressTint="@color/md_yellow_500" />
+
+                    <ImageView
+                        android:id="@+id/groupImg"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_below="@id/rateIcon"
+                        android:layout_marginTop="7dp"
+                        android:contentDescription="@string/img_movie_des"
+                        android:src="@drawable/ic_group"
+                        android:tint="@color/paleLavender" />
+
+                    <TextView
+                        android:id="@+id/groupText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/rateText"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_toEndOf="@id/desIcon"
+                        android:text="@{data.title}"
+                        android:textColor="@color/paleLavender"
+                        android:textSize="12sp"
+                        tools:text="12000" />
+
+                    <ImageView
+                        android:id="@+id/videoImg"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_below="@id/groupImg"
+                        android:layout_marginTop="7dp"
+                        android:contentDescription="@string/img_movie_des"
+                        android:src="@drawable/ic_video"
+                        android:tint="@color/paleLavender" />
+
+                    <TextView
+                        android:id="@+id/genreText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/groupText"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="17dp"
+                        android:layout_toEndOf="@id/desIcon"
+                        android:text="@{data.title}"
+                        android:textColor="@color/paleLavender"
+                        android:textSize="12sp"
+                        tools:text="Game" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/imageGenre"
+                    loadImage="@{data.genre.genreImage}"
+                    android:layout_width="120dp"
+                    android:layout_height="170dp"
+                    android:alpha="0.1"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/viewSep"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/paleLavender"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <VideoView
+
+            android:id="@+id/videoView"
+            android:layout_below="@id/games"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+</layout>
